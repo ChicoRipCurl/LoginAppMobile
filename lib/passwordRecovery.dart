@@ -1,65 +1,50 @@
 import 'package:flutter/material.dart';
-import 'package:login_app_mobile/passwordRecovery.dart';
-import 'package:login_app_mobile/registerCustomer.dart';
 
-import 'passwordRecovery.dart';
-import 'register.dart';
+import 'login.dart';
 
-class login extends StatefulWidget {
-  const login({super.key});
+class passwordRecovery extends StatefulWidget {
+  const passwordRecovery({super.key});
 
   @override
-  State<login> createState() => _loginState();
+  State<passwordRecovery> createState() => _passwordRecoveryState();
 }
 
-class _loginState extends State<login> {
+class _passwordRecoveryState extends State<passwordRecovery> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-
       appBar: AppBar(
         title: Text('Carga sin Estres',
           style: TextStyle(
               color: Colors.white),),
         backgroundColor: Colors.brown,
-
       ),
 
       body: SafeArea(
-
 
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(30.0),
 
             child: Column(
-
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(
-                  Icons.account_circle_outlined, size: 100,
-
-                ),
-
-                Text('Iniciar Sesión',style: TextStyle(
+                Text('Reestablecer contraseña',style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 30,
                 ),),
 
-                Text('ingrese su Email y Contraseña',style: TextStyle(
+                Text('Valide sus datos',style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20,
                 ),),
 
                 Padding(
                   padding: const EdgeInsets.all(10.0),
-
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(15),
-
                     ),
 
                     child: Padding(
@@ -69,7 +54,8 @@ class _loginState extends State<login> {
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          hintText: 'Correo o celular',
+                          hintText: 'Correo de la cuenta',
+
                         ),
                       ),
                     ),
@@ -78,45 +64,71 @@ class _loginState extends State<login> {
 
                 Padding(
                   padding: const EdgeInsets.all(10.0),
-
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(15),
-
                     ),
 
                     child: Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: TextField(
-                        obscureText: true,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          hintText: 'Contraseña',
-
+                          hintText: 'Telefono',
                         ),
                       ),
                     ),
                   ),
                 ),
 
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    TextButton(
-                      onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (BuildContext context){
-                          return passwordRecovery();
-                        }));
-                      },
-                      child: Text(
-                        'Olvidé mi contraseña',
-                        style: TextStyle(color: Colors.brown),
+
+
+
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+
+                    child: Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: TextField(
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          hintText: 'Contraseña nueva',
+                        ),
                       ),
                     ),
-                  ],
+                  ),
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+
+                    child: Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: TextField(
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          hintText: 'Repetir contraseña nueva',
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
 
                 Row(
@@ -126,11 +138,13 @@ class _loginState extends State<login> {
                       width: 300,
                       child: ElevatedButton(
                         onPressed: () {
-                          // lógica para "Login"
+                          Navigator.push(context, MaterialPageRoute(builder: (BuildContext context){
+                            return login();
+                          }));
                         },
                         style: ElevatedButton.styleFrom(backgroundColor: Colors.brown),
                         child: Text(
-                          'Login',
+                          'Cambiar contraseña',
                           style: TextStyle(
                             fontSize: 17,
                             fontWeight: FontWeight.bold,
@@ -142,20 +156,19 @@ class _loginState extends State<login> {
                   ],
                 ),
 
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('¿No tienes una cuenta? '),
+                    Text('¿Recuerda su contraseña? '),
                     TextButton(
                       onPressed: () {
-                        // Redireccion para "Regístrate"
                         Navigator.push(context, MaterialPageRoute(builder: (BuildContext context){
-                          return register();
-
+                          return login();
                         }));
                       },
                       child: Text(
-                        'Regístrate',
+                        'Inicia sesión',
                         style: TextStyle(color: Colors.brown),
                       ),
                     ),
@@ -169,4 +182,3 @@ class _loginState extends State<login> {
     );
   }
 }
-
